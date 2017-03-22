@@ -3,7 +3,6 @@ var findMissing = function (list) {
   let diff = 0;
   let num = 0;
   let final = 0;
-  console.log('list: ', list)
 
   for (var i = 0; i < list.length-1; i++) {
     diff=list[i] - list[i+1]
@@ -18,29 +17,24 @@ var findMissing = function (list) {
       }
   }
 
-console.log('diffArr: ', diffArr)
-console.log('num: ', num);
-
 if (diffArr[0] < 0){
-  console.log('positive');
   for (let i = 0; i < list.length; i++) {
     if (list[i] + Math.abs(num) !== list[i+1]){
       final = list[i] + Math.abs(num)
+      return final;
     }
   }
 }
 
 if (diffArr[0] > 0){
-  console.log('negative');
   for (let i = 0; i < list.length; i++) {
     if (list[i] - Math.abs(num) !== list[i+1]){
       final = list[i] - Math.abs(num)
+      return final;
     }
   }
 }
 
-console.log('final: ', final);
-return final;
 };
 
 findMissing([3,6,9,12,18, 21]);
