@@ -11,23 +11,26 @@ var findMissing = function (list) {
   }
 
   for (var i = 0; i < diffArr.length; i++) {
-    if (difArr[i] == difArr[i+1] && difArr[i] < 0){
+    if (diffArr[i] == diffArr[i+1] && diffArr[i] < 0){
       type = 'add'
+      num = diffArr[i]
       break;
     }
-    if (difArr[i] == difArr[i+1] && difArr[i] > 0){
+    if (diffArr[i] == diffArr[i+1] && diffArr[i] > 0){
       type = 'subtract'
+      num = diffArr[i]
       break;
     }
-    if ((difArr[i+1] / difArr[i]) == (difArr[i+2] / difArr[i+1])){
+    if ((list[i+1] / list[i]) == (list[i+2] / list[i+1])){
       type = 'multiply'
-      num
+      num = list[i+1] / list[i]
       break;
     }
 
   }
   console.log('diffArr: ', diffArr)
   console.log('type: ', type);
+  console.log('num: ', num)
   return list [0] ;
 };
 
