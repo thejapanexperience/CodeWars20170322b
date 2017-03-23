@@ -3,7 +3,9 @@ const recoverSecret = function (triplets) {
   let secret = [];
   let letters = {};
   let length = 0;
-  let rules = []
+  let finalArray = []
+  let finalString = ''
+
   console.log('triplets[0]: ', triplets[0])
 
   for (let i = 0; i < triplets.length; i++) {
@@ -67,8 +69,19 @@ const recoverSecret = function (triplets) {
         }
       }
     }
+
     for (var i = 0; i < length; i++) {
-  }
+      finalArray.push('a')
+    }
+
+    console.log('finalArray: ', finalArray)
+
+    Object.keys(letters).forEach(key => {
+      let index = letters[key].lettersFollowing.length
+      console.log('index: ', index)
+      finalArray[index] = key
+      console.log('finalArray: ', finalArray)
+    })
 
   console.log('letters: ', letters)
 }
