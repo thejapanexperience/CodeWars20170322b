@@ -14,19 +14,25 @@ var recoverSecret = function(triplets) {
       if (!letters[letter]){
         length += 1;
       }
-      letters[letter] = [];
-      }
+      letters[letter] = {
+        count: 0,
+        lettersFollowing: []
+      };
+    }
   }
 
   console.log('length: ', length)
 
-  for (let i = 0; i < triplets.length; i++) {
-    let triplet = [triplets[i]]
-    for (let j = 0; j < triplet.length; j++) {
-      console.log(': triplet[j]', triplet[j])
-      letters[triplet[j][0]].push('hello')
+  for (let h = 0; h < length; h++) {
+    for (let i = 0; i < triplets.length; i++) {
+      let triplet = [triplets[i]]
+      console.log('triplet[0][0]: ', triplet[0][0])
+      console.log('letters[triplet[0]]: ', letters[triplet[0]])
+      console.log('letters: ', letters)
+        // letters[triplet[0][0]].push('hello')
     }
   }
+
   console.log('letters: ', letters)
 }
 
