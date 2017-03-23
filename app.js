@@ -6,8 +6,6 @@ const recoverSecret = function (triplets) {
   let finalArray = []
   let finalString = ''
 
-  console.log('triplets[0]: ', triplets[0])
-
   for (let i = 0; i < triplets.length; i++) {
     let triplet = [...triplets[i]];
     let letter = '';
@@ -82,8 +80,9 @@ const recoverSecret = function (triplets) {
       finalArray[index] = key
       console.log('finalArray: ', finalArray)
     })
-
-  console.log('letters: ', letters)
+    finalString = finalArray.reverse().join('')
+    console.log('finalString: ', finalString)
+    return finalString
 }
 
 const triplets = [
