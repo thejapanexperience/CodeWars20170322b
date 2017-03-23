@@ -24,7 +24,7 @@ var recoverSecret = function(triplets) {
     let triplet = [triplets[i]]
     for (let j = 0; j < triplet.length; j++) {
       console.log(': triplet[j]', triplet[j])
-      letters[triplet[j]][0].push
+      letters[triplet[j][0]].push('hello')
     }
   }
   console.log('letters: ', letters)
