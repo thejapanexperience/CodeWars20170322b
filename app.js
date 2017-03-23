@@ -42,7 +42,6 @@ const recoverSecret = function (triplets) {
       }
     }
   }
-  for (var i = 0; i < length; i++) {
     for (let i = 0; i < triplets.length; i++) {
       let triplet = [...triplets[i]];
       let letter1 = triplet[0]
@@ -68,7 +67,9 @@ const recoverSecret = function (triplets) {
         }
       }
     }
+    for (var i = 0; i < length; i++) {
   }
+
   console.log('letters: ', letters)
 }
 
