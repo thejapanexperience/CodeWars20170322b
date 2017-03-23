@@ -1,4 +1,4 @@
-var recoverSecret = function(triplets) {
+const recoverSecret = function (triplets) {
   console.log('triplets: ', triplets)
   let secret = [];
   let letters = {};
@@ -25,16 +25,12 @@ var recoverSecret = function(triplets) {
   for (var i = 0; i < length; i++) {
     for (let i = 0; i < triplets.length; i++) {
       let triplet = [...triplets[i]];
-      let letter = '';
       let letter1 = triplet[0]
       let letter2 = triplet[1]
       let letter3 = triplet[2]
       let array1 = letters[letter1].lettersFollowing;
       let array2 = letters[letter2].lettersFollowing;
       let array3 = letters[letter3].lettersFollowing;
-      let count1 = letters[letter1].count
-      let count2 = letters[letter2].count
-      let count3 = letters[letter3].count
       if (array1.indexOf(letter2) < 0) {
         array1.push(letter2)
       }
@@ -44,15 +40,39 @@ var recoverSecret = function(triplets) {
       if (array2.indexOf(letter3) < 0) {
         array2.push(letter3)
       }
-      count1 = array1.length
-      count2 = array2.length
-      count3 = array3.length
+    }
+  }
+  for (var i = 0; i < length; i++) {
+    for (let i = 0; i < triplets.length; i++) {
+      let triplet = [...triplets[i]];
+      let letter1 = triplet[0]
+      let letter2 = triplet[1]
+      let letter3 = triplet[2]
+      let array1 = letters[letter1].lettersFollowing;
+      let array2 = letters[letter2].lettersFollowing;
+      let array3 = letters[letter3].lettersFollowing;
+
+      for (let k = 0; k < array2.length; k++) {
+        if (array1.indexOf(array2[k]) < 0){
+          array1.push(array2[k])
+        }
+      }
+      for (let k = 0; k < array3.length; k++) {
+        if (array1.indexOf(array3[k]) < 0){
+          array1.push(array3[k])
+        }
+      }
+      for (let k = 0; k < array3.length; k++) {
+        if (array2.indexOf(array3[k]) < 0){
+          array2.push(array3[k])
+        }
+      }
     }
   }
   console.log('letters: ', letters)
 }
 
-let triplets = [
+const triplets = [
   ['t', 'u', 'p'],
   ['w', 'h', 'i'],
   ['t', 's', 'u'],
